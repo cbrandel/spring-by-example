@@ -19,36 +19,36 @@
         -->
         <sbe-site-version>1.5</sbe-site-version>
         
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         
         <sbe.dynamic.tiles2.version>1.2.4</sbe.dynamic.tiles2.version>
         <sbe.rest.version>0.52</sbe.rest.version>
         <sbe.util.version>1.2.6</sbe.util.version>
         <contact.app.version>1.1.2</contact.app.version>
 
-        <spring.framework.version>4.1.4.RELEASE</spring.framework.version>
-        <spring.amqp.version>1.4.2.RELEASE</spring.amqp.version>
-        <spring.data.jpa.version>1.7.1.RELEASE</spring.data.jpa.version>
-        <spring.data.rest.version>2.2.1.RELEASE</spring.data.rest.version>
+        <spring.framework.version>4.3.5.RELEASE</spring.framework.version>
+        <spring.amqp.version>1.6.6.RELEASE</spring.amqp.version>
+        <spring.data.jpa.version>1.10.1.RELEASE</spring.data.jpa.version>
+        <spring.data.rest.version>2.5.6.RELEASE</spring.data.rest.version>
         <spring.flex.version>1.5.2.RELEASE</spring.flex.version>
-        <spring.integration.version>4.1.2.RELEASE</spring.integration.version>
-        <spring.security.version>3.2.5.RELEASE</spring.security.version>
-        <spring.webflow.version>2.3.3.RELEASE</spring.webflow.version>
-        <spring.ws.version>2.1.4.RELEASE</spring.ws.version>
+        <spring.integration.version>4.3.5.RELEASE</spring.integration.version>
+        <spring.security.version>4.2.1.RELEASE</spring.security.version>
+        <spring.webflow.version>2.4.4.RELEASE</spring.webflow.version>
+        <spring.ws.version>2.4.0.RELEASE</spring.ws.version>
 
         <aspectj.version>1.8.4</aspectj.version>
         <dozer.version>5.5.1</dozer.version>
-        <hibernate.version>4.3.8.Final</hibernate.version>
+        <hibernate.version>5.2.5.Final</hibernate.version>
         <jackson.mapper.version>2.5.0</jackson.mapper.version>
         <jackrabbit.version>2.9.0</jackrabbit.version>
-        <jasper.el.version>6.0.35</jasper.el.version>
+        <jasper.el.version>8.5.6</jasper.el.version>
         <jetty.version>6.1.26</jetty.version>
         <jstl.version>1.1.2</jstl.version>        
-        <logback.version>1.1.2</logback.version>
+        <logback.version>1.1.8</logback.version>
         <postgresql.jdbc.version>9.3-1100-jdbc4</postgresql.jdbc.version>
-        <slf4j.version>1.7.10</slf4j.version>
+        <slf4j.version>1.7.22</slf4j.version>
         <spring.modules.version>0.8a</spring.modules.version>
-		<tiles.version>2.2.2</tiles.version>
+		<tiles.version>3.0.7</tiles.version>
 
         <junit.version>4.12</junit.version>
         
@@ -582,17 +582,17 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator-annotation-processor</artifactId>
-                <version>5.1.2.Final</version>
+                <version>5.3.4.Final</version>
             </dependency>
             <dependency>
                <groupId>org.hibernate</groupId>
                <artifactId>hibernate-validator-cdi</artifactId>
-               <version>5.1.2.Final</version>
+               <version>5.3.4.Final</version>
             </dependency>        
             <dependency>
                 <groupId>org.hsqldb</groupId>
                 <artifactId>hsqldb</artifactId>
-                <version>2.3.2</version>
+                <version>2.3.4</version>
             </dependency>
             
             <!-- Validation Dependencies -->
@@ -1020,7 +1020,7 @@ limitations under the License.
             <name>Spring by Example</name>
             <url>http://www.springbyexample.org/maven/repo</url>
         </repository>
-
+<!--
         <repository>
             <id>repository.springframework.milestone</id>
             <name>Spring Framework Maven Milestone Repository</name>
@@ -1031,6 +1031,7 @@ limitations under the License.
             <name>Spring Framework Maven Snapshot Repository</name>
             <url>http://maven.springframework.org/snapshot</url>
         </repository>
+-->
     </repositories>
 
 </project>

@@ -9,7 +9,6 @@
         <relativePath>../../proto-pom/jar</relativePath>
     </parent>
     
-	<groupId>org.springbyexample</groupId>
 	<artifactId>sbe-validation</artifactId>
 	<version>0.98</version>
     <name>Spring by Example Validation</name>

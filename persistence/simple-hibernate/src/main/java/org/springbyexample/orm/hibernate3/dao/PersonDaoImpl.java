@@ -21,7 +21,7 @@ import java.util.Collection;
 import org.hibernate.SessionFactory;
 import org.springbyexample.orm.hibernate3.bean.Person;
 import org.springframework.dao.DataAccessException;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

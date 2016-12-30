@@ -1,24 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springbyexample</groupId>
-        <artifactId>proto-pom-example</artifactId>
-        <version>2.3</version>
-        <relativePath>../../proto-pom/example</relativePath>
-    </parent>
+	<parent>
+		<groupId>org.springbyexample</groupId>
+		<artifactId>proto-pom-example</artifactId>
+		<version>2.3</version>
+		<relativePath>../../proto-pom/example</relativePath>
+	</parent>
 
-    <groupId>org.springbyexample</groupId>
-    <artifactId>simple-hibernate</artifactId>
-    <version>1.0.4</version>
-    <name>Hibernate Tests</name>
-    <description>
+	<artifactId>simple-hibernate</artifactId>
+	<version>1.0.4</version>
+	<name>Hibernate Tests</name>
+	<description>
         Hibernate tests.
     </description>
-    
-    <properties>
-        <hibernate.version>3.6.10.Final</hibernate.version>
-    </properties>
 
+	<profiles>
+		<profile>
+			<id>hibernatetool</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<!-- Hibernatetool will generate everything before running tests -->
+								<phase>test-compile</phase>
+								<configuration>
+									<target>
+										<property name="maven_compile_classpath" refid="maven.compile.classpath" />
+										<property name="maven_test_classpath" refid="maven.test.classpath" />
+										<path id="hibernatetool.path">
+											<pathelement path="${maven_compile_classpath}" />
+											<pathelement path="${maven_test_classpath}" />
+										</path>
+										<taskdef name="hibernatetool"
+											classname="org.hibernate.tool.ant.HibernateToolTask"
+											classpathref="hibernatetool.path" />
+
+										<property name="generatedByHibernate.outputDirectory"
+											value="${project.build.directory}/generated/hibernatetool" />
+										<mkdir dir="${generatedByHibernate.outputDirectory}" />
+										<hibernatetool destdir="${generatedByHibernate.outputDirectory}">
+											<classpath>
+												<path location="${project.build.directory}/classes" />
+											</classpath>
+											<configuration configurationfile="src/main/hbm2ddl/hibernate-h2.cfg.xml" />
+											<hbm2ddl export="false" drop="true" create="true"
+												outputfilename="h2.sql" format="true" />
+										</hibernatetool>
+										<hibernatetool destdir="${generatedByHibernate.outputDirectory}">
+											<classpath>
+												<path location="${project.build.directory}/classes" />
+											</classpath>
+											<configuration configurationfile="src/main/hbm2ddl/hibernate-pgsql.cfg.xml" />
+											<hbm2ddl export="false" drop="true" create="true"
+												outputfilename="postgres.sql" format="true" />
+										</hibernatetool>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-tools -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-tools</artifactId>
+			<version>5.2.0.Final</version>
+		</dependency>
+	</dependencies>
 </project>
