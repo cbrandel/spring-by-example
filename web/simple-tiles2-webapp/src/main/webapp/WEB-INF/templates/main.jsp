@@ -14,7 +14,7 @@
 	<tiles:insertAttribute name="menu" />
 </div>
 <div id="content">
-	<td><tiles:insertAttribute name="body" />
+	<tiles:insertAttribute name="body" />
 </div>
 <div id="footer">
 	<tiles:insertAttribute name="footer" />
