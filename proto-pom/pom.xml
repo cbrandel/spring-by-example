@@ -854,7 +854,7 @@
                 <artifactId>jetty-java5-threadpool</artifactId>
                 <version>${jetty.version}</version>
                 <scope>test</scope>
-            </dependency>        
+            </dependency> 
         </dependencies>
     </dependencyManagement>
 
@@ -924,6 +924,11 @@
                         <target>${java.version}</target>
                     </configuration>
                 </plugin>
+		        <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-war-plugin</artifactId>
+		            <version>3.0.0</version>
+		        </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
