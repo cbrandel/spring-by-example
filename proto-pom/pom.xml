@@ -21,7 +21,7 @@
         
         <java.version>1.8</java.version>
         
-        <sbe.dynamic.tiles2.version>1.2.4</sbe.dynamic.tiles2.version>
+        <sbe.dynamic.tiles2.version>1.2.5</sbe.dynamic.tiles2.version>
         <sbe.rest.version>0.52</sbe.rest.version>
         <sbe.util.version>1.2.6</sbe.util.version>
         <contact.app.version>1.1.2</contact.app.version>
@@ -654,7 +654,12 @@
                 <artifactId>tiles-jsp</artifactId>
                 <version>${tiles.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.apache.tiles</groupId>
+                <artifactId>tiles-request-servlet</artifactId>
+                <version>1.0.6</version>
+            </dependency>
+            
             <!-- JCR -->
             <dependency>
                 <groupId>javax.jcr</groupId>

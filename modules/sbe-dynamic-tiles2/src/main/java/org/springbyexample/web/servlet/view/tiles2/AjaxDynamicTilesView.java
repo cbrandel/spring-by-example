@@ -16,30 +16,22 @@
 
 package org.springbyexample.web.servlet.view.tiles2;
 
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tiles.Attribute;
-import org.apache.tiles.AttributeContext;
-import org.apache.tiles.Definition;
 import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
-import org.apache.tiles.context.TilesRequestContext;
-import org.apache.tiles.impl.BasicTilesContainer;
+import org.apache.tiles.request.ApplicationContext;
+import org.apache.tiles.request.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.js.ajax.AjaxHandler;
 import org.springframework.js.ajax.SpringJavascriptAjaxHandler;
-import org.springframework.js.ajax.tiles2.AjaxTilesView;
-import org.springframework.web.servlet.support.JstlUtils;
-import org.springframework.web.servlet.support.RequestContext;
+import org.springframework.js.ajax.tiles3.AjaxTilesView;
 
 /**
  * <p>If the request isn't an AJAX request, <code>DynamicTilesView</code> 
@@ -70,8 +62,12 @@ public class AjaxDynamicTilesView extends AjaxTilesView {
 	    String beanName = getBeanName();
 	    String url = getUrl();
 
-        ServletContext servletContext = getServletContext();
-        TilesContainer container = TilesAccess.getContainer(servletContext);
+	    Request tilesRequest = createTilesRequest(request, response);
+		ApplicationContext tilesAppContext = tilesRequest.getApplicationContext();
+		TilesContainer container = TilesAccess.getContainer(tilesAppContext);
+		
+        //ServletContext servletContext = getServletContext();
+        //TilesContainer container = TilesAccess.getContainer(servletContext);
         if (container == null) {
             throw new ServletException("Tiles container is not initialized. " + 
                                        "Have you added a TilesConfigurer to your web application context?");
@@ -88,7 +84,7 @@ public class AjaxDynamicTilesView extends AjaxTilesView {
             exposeModelAsRequestAttributes(model, request);
 
             dynamicTilesViewProcessor.renderMergedOutputModel(beanName, url, 
-                                                              servletContext, request, response, container);
+                                                              getServletContext(), request, response, container);
         }
     }
 	

@@ -16,6 +16,7 @@
 
 package org.springbyexample.orm.jpa.inheritance.bean;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -38,6 +39,7 @@ public class Professional extends Person {
     /**
      * Gets company name.
      */
+    @Column(name="COMPANY_NAME")
     public String getCompanyName() {
         return companyName;
     }

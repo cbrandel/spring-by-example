@@ -19,6 +19,7 @@ package org.springbyexample.orm.jpa.bean;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -104,6 +105,7 @@ public class Address implements Serializable {
     /**
      * Gets zip or postal code.
      */
+    @Column(name="ZIP_POSTAL")
     public String getZipPostal() {
         return zipPostal;
     }

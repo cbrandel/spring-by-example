@@ -9,7 +9,6 @@
         <relativePath>../../proto-pom/example</relativePath>
     </parent>
 
-    <groupId>org.springbyexample</groupId>
     <artifactId>simple-jpa</artifactId>
     <version>1.1.6</version>
     <name>Simple JPA Example</name>

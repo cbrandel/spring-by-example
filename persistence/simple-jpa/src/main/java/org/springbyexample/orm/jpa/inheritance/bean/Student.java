@@ -16,6 +16,7 @@
 
 package org.springbyexample.orm.jpa.inheritance.bean;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -38,6 +39,7 @@ public class Student extends Person {
     /**
      * Gets school name.
      */
+    @Column(name="SCHOOL_NAME")
     public String getSchoolName() {
         return schoolName;
     }

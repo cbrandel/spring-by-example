@@ -11,13 +11,12 @@
         <relativePath>../../proto-pom/jar</relativePath>
     </parent>
     
-	<groupId>org.springbyexample</groupId>
 	<artifactId>sbe-dynamic-tiles2</artifactId>
-	<version>${sbe.dynamic.tiles2.version}</version>
+	<version>1.2.5</version>
 	<packaging>jar</packaging>
-	<name>Dynamic Tiles 2 Spring View Resolvers</name>
+	<name>Dynamic Tiles 3 Spring View Resolvers</name>
 	<description>
-	   Dynamic Tiles 2 Spring view resovlers.  
+	   Dynamic Tiles 3 Spring view resolvers.  
 	   It can use the url to generate the link for the body and dynamically 
 	   insert it into the master template.
 	</description>
@@ -40,7 +39,11 @@
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-core</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-request-servlet</artifactId>
+		</dependency>
+		
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-servlet_3.0_spec</artifactId>

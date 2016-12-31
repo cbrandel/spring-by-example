@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -65,6 +66,7 @@ public class Person implements Serializable {
     /**
      * Gets first name.
      */
+    @Column(name="FIRST_NAME")
     public String getFirstName() {
         return firstName;
     }
@@ -79,6 +81,7 @@ public class Person implements Serializable {
     /**
      * Gets last name.
      */
+    @Column(name="LAST_NAME")
     public String getLastName() {
         return lastName;
     }

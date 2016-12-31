@@ -10,9 +10,7 @@
         <version>2.3</version>
     </parent>
 
-	<groupId>org.springbyexample</groupId>
 	<artifactId>proto-pom-example-web</artifactId>
-	<version>2.3</version>
 	<packaging>pom</packaging>
 	<name>proto-pom-example-web</name>
     <description>

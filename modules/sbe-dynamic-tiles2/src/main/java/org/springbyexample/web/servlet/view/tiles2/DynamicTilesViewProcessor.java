@@ -16,8 +16,9 @@
 
 package org.springbyexample.web.servlet.view.tiles2;
 
+import java.util.Locale;
+
 import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,11 +26,16 @@ import org.apache.tiles.Attribute;
 import org.apache.tiles.AttributeContext;
 import org.apache.tiles.TilesContainer;
 import org.apache.tiles.TilesException;
+import org.apache.tiles.request.Request;
+import org.apache.tiles.request.servlet.ServletRequest;
+import org.apache.tiles.request.servlet.ServletUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
+import org.springframework.web.context.support.WebApplicationObjectSupport;
 import org.springframework.web.servlet.support.JstlUtils;
 import org.springframework.web.servlet.support.RequestContext;
+import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.util.WebUtils;
 
 /**
@@ -104,7 +110,7 @@ public class DynamicTilesViewProcessor {
 
         String definitionName = startDynamicDefinition(beanName, url, request, response, container);
 
-        container.render(definitionName, request, response);
+        container.render(definitionName, createTilesRequest(request, response));
 
         endDynamicDefinition(definitionName, beanName, request, response, container);
     }
@@ -122,11 +128,9 @@ public class DynamicTilesViewProcessor {
         // create a temporary context and render using the incoming url as the
         // body attribute
         if (!definitionName.equals(beanName)) {
-            Attribute attr = new Attribute();
-            attr.setName(tilesBodyAttributeName);
-            attr.setValue(url);
+            Attribute attr = new Attribute(tilesBodyAttributeName, url);
 
-            AttributeContext attributeContext = container.startContext(request, response);
+            AttributeContext attributeContext = container.startContext(createTilesRequest(request, response));
             attributeContext.putAttribute(tilesBodyAttributeName, attr);
 
             logger.debug("URL used for Tiles body.  url='" + url + "'.");
@@ -142,7 +146,7 @@ public class DynamicTilesViewProcessor {
 	                                    HttpServletRequest request, HttpServletResponse response,
 	                                    TilesContainer container) {
         if (!definitionName.equals(beanName)) {
-            container.endContext(request, response);
+            container.endContext(createTilesRequest(request, response));
         }
 	}
 
@@ -164,7 +168,7 @@ public class DynamicTilesViewProcessor {
 		// check for main template
 		if (derivedDefinitionName != null) {
 			return derivedDefinitionName;
-		} else if (container.isValidDefinition(beanName, request, response)) {
+		} else if (container.isValidDefinition(beanName, createTilesRequest(request, response))) {
 			derivedDefinitionName = beanName;
 
 			return beanName;
@@ -200,7 +204,7 @@ public class DynamicTilesViewProcessor {
 
 			sb.append(tilesDefinitionName);
 
-			if (container.isValidDefinition(sb.toString(), request, response)) {
+			if (container.isValidDefinition(sb.toString(), createTilesRequest(request, response))) {
 				result = sb.toString();
 			} else if (!rootDefinition) {
 				String root = null;
@@ -211,7 +215,7 @@ public class DynamicTilesViewProcessor {
 
 				root += tilesDefinitionName;
 
-				if (container.isValidDefinition(root, request, response)) {
+				if (container.isValidDefinition(root, createTilesRequest(request, response))) {
 					result = root;
 				} else {
 					throw new TilesException("No defintion of found for " +
@@ -253,9 +257,18 @@ public class DynamicTilesViewProcessor {
     /**
      * Expose the specified request attribute if not already present.
      */
-    private void exposeRequestAttributeIfNotPresent(ServletRequest request, String name, Object value) {
+    private void exposeRequestAttributeIfNotPresent(HttpServletRequest request, String name, Object value) {
         if (request.getAttribute(name) == null) {
             request.setAttribute(name, value);
         }
     }
+    
+    private Request createTilesRequest(final HttpServletRequest request, HttpServletResponse response) {
+		return new ServletRequest(ServletUtil.getApplicationContext(request.getServletContext()), request, response) {
+			@Override
+			public Locale getRequestLocale() {
+				return RequestContextUtils.getLocale(request);
+			}
+		};
+	}
 }

@@ -60,6 +60,14 @@
 											<hbm2ddl export="false" drop="true" create="true"
 												outputfilename="postgres.sql" format="true" />
 										</hibernatetool>
+										<hibernatetool destdir="${generatedByHibernate.outputDirectory}">
+											<classpath>
+												<path location="${project.build.directory}/classes" />
+											</classpath>
+											<configuration configurationfile="src/main/hbm2ddl/hibernate-hsqldb.cfg.xml" />
+											<hbm2ddl export="false" drop="true" create="true"
+												outputfilename="hsqldb.sql" format="true" />
+										</hibernatetool>
 									</target>
 								</configuration>
 								<goals>
