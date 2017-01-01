@@ -39,17 +39,24 @@ import javax.persistence.Table;
 @Table(name="PERSON")
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id = null;
+    
+    @Column(name="FIRST_NAME")
     private String firstName = null;
+    
+    @Column(name="LAST_NAME")
     private String lastName = null;
+
+    @OneToMany(fetch=FetchType.EAGER)
+    @JoinColumn(name="PERSON_ID", nullable=false)
     private Set<Address> addresses = null;
     private Date created = null;
     
     /**
      * Gets id (primary key).
      */
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -64,7 +71,6 @@ public class Person {
     /**
      * Gets first name.
      */
-    @Column(name="FIRST_NAME")
     public String getFirstName() {
         return firstName;
     }
@@ -79,7 +85,6 @@ public class Person {
     /**
      * Gets last name.
      */
-    @Column(name="LAST_NAME")
     public String getLastName() {
         return lastName;
     }
@@ -94,8 +99,6 @@ public class Person {
     /**
      * Gets list of <code>Address</code>es.
      */
-    @OneToMany(fetch=FetchType.EAGER)
-    @JoinColumn(name="PERSON_ID", nullable=false)
 	public Set<Address> getAddresses() {
 		return addresses;
 	}
