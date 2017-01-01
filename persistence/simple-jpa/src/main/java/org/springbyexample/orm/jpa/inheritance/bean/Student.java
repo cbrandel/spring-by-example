@@ -34,12 +34,12 @@ public class Student extends Person {
 
     private static final long serialVersionUID = -8933409594928827120L;
 
+    @Column(name="SCHOOL_NAME")
     private String schoolName = null;
 
     /**
      * Gets school name.
      */
-    @Column(name="SCHOOL_NAME")
     public String getSchoolName() {
         return schoolName;
     }

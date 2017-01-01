@@ -36,10 +36,14 @@ public class Address implements Serializable {
 
     private static final long serialVersionUID = 7851794269407495684L;
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id = null;
     private String address = null;
     private String city = null;
     private String state = null;
+    
+    @Column(name="ZIP_POSTAL")
     private String zipPostal = null;
     private String country = null;
     private Date created = null;
@@ -47,8 +51,6 @@ public class Address implements Serializable {
     /**
      * Gets id (primary key).
      */
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -105,7 +107,6 @@ public class Address implements Serializable {
     /**
      * Gets zip or postal code.
      */
-    @Column(name="ZIP_POSTAL")
     public String getZipPostal() {
         return zipPostal;
     }

@@ -34,12 +34,12 @@ public class Professional extends Person {
 
     private static final long serialVersionUID = 8199967229715812072L;
 
+    @Column(name="COMPANY_NAME")
     private String companyName = null;
 
     /**
      * Gets company name.
      */
-    @Column(name="COMPANY_NAME")
     public String getCompanyName() {
         return companyName;
     }

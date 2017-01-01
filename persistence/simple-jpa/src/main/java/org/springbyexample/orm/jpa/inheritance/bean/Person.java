@@ -47,17 +47,24 @@ public class Person implements Serializable {
 
     private static final long serialVersionUID = -2175150694352541150L;
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id = null;
+    
+    @Column(name="FIRST_NAME")
     private String firstName = null;
+    
+    @Column(name="LAST_NAME")
     private String lastName = null;
+    
+    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name="PERSON_ID", nullable=false)
     private Set<Address> addresses = null;
     private Date created = null;
 
     /**
      * Gets id (primary key).
      */
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -72,7 +79,6 @@ public class Person implements Serializable {
     /**
      * Gets first name.
      */
-    @Column(name="FIRST_NAME")
     public String getFirstName() {
         return firstName;
     }
@@ -87,7 +93,6 @@ public class Person implements Serializable {
     /**
      * Gets last name.
      */
-    @Column(name="LAST_NAME")
     public String getLastName() {
         return lastName;
     }
@@ -102,8 +107,6 @@ public class Person implements Serializable {
     /**
      * Gets list of <code>Address</code>es.
      */
-    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinColumn(name="PERSON_ID", nullable=false)
     public Set<Address> getAddresses() {
         return addresses;
     }
