@@ -36,7 +36,7 @@
         <spring.webflow.version>2.4.4.RELEASE</spring.webflow.version>
         <spring.ws.version>2.4.0.RELEASE</spring.ws.version>
 
-        <aspectj.version>1.8.4</aspectj.version>
+        <aspectj.version>1.8.10</aspectj.version>
         <dozer.version>5.5.1</dozer.version>
         <hibernate.version>5.2.5.Final</hibernate.version>
         <jackson.mapper.version>2.5.0</jackson.mapper.version>
@@ -551,7 +551,7 @@
             <dependency>
                 <groupId>org.jadira.usertype</groupId>
                 <artifactId>usertype.core</artifactId>
-                <version>3.2.0.GA</version>
+                <version>6.0.1.GA</version>
             </dependency>
             <dependency>
                 <groupId>org.jvnet.opendmk</groupId>
