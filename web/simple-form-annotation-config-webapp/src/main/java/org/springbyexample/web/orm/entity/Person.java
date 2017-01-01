@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -38,7 +39,11 @@ public class Person extends AbstractPersistable<Integer> {
 
     private static final long serialVersionUID = -8712872385957386182L;
 
+    @Column(name="FIRST_NAME")
+    
     private String firstName = null;
+    
+    @Column(name="LAST_NAME")
     private String lastName = null;
 
     @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)

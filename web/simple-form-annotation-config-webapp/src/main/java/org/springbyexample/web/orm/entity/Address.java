@@ -18,6 +18,7 @@ package org.springbyexample.web.orm.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -36,6 +37,8 @@ public class Address extends AbstractPersistable<Integer> {
     private String address = null;
     private String city = null;
     private String state = null;
+    
+    @Column(name="ZIP_POSTAL")
     private String zipPostal = null;
     private String country = null;
     private Date created = null;
