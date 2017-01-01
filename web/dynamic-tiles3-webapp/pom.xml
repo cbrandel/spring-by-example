@@ -12,19 +12,19 @@
     </parent>
     
 	<groupId>org.springbyexample.web</groupId>
-	<artifactId>dynamic-tiles2</artifactId>
-	<version>1.2.4</version>
+	<artifactId>dynamic-tiles3</artifactId>
+	<version>1.2.5</version>
 	<packaging>war</packaging>
-	<name>Dynamic Tiles 2 Spring Webapp</name>
+	<name>Dynamic Tiles 3 Spring Webapp</name>
 	<description>
-		Dynamic Tiles 2 Spring webapp uses the url to generate the
+		Dynamic Tiles 3 Spring webapp uses the url to generate the
 		link and dynamically insert it as the body of the master template.
 	</description>
 
     <dependencies>
         <dependency>
             <groupId>org.springbyexample</groupId>
-            <artifactId>sbe-dynamic-tiles2</artifactId>
+            <artifactId>sbe-dynamic-tiles3</artifactId>
         </dependency>
 
 		<dependency>
@@ -34,7 +34,7 @@
 	</dependencies>
 
 	<build>
-        <finalName>dynamic-tiles2</finalName>
+        <finalName>dynamic-tiles3</finalName>
 	</build>
 
 </project>

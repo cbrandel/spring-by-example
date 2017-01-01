@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springbyexample.web.servlet.view.tiles2;
+package org.springbyexample.web.servlet.view.tiles3;
 
 import java.util.Locale;
 import java.util.Map;

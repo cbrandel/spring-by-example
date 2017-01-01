@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springbyexample.web.servlet.view.tiles2;
+package org.springbyexample.web.servlet.view.tiles3;
 
 import java.util.Locale;
 
@@ -32,7 +32,6 @@ import org.apache.tiles.request.servlet.ServletUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
-import org.springframework.web.context.support.WebApplicationObjectSupport;
 import org.springframework.web.servlet.support.JstlUtils;
 import org.springframework.web.servlet.support.RequestContext;
 import org.springframework.web.servlet.support.RequestContextUtils;

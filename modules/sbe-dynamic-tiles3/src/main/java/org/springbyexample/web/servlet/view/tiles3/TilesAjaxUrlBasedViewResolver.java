@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package org.springbyexample.web.servlet.view.tiles2;
+package org.springbyexample.web.servlet.view.tiles3;
 
+import org.springframework.js.ajax.AjaxUrlBasedViewResolver;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 /**
- * <p>Extends <code>UrlBasedViewResolver</code> and provides 
+ * <p>Extends <code>AjaxUrlBasedViewResolver</code> and provides 
  * some properties to set tiles values if the view is a 
  * <code>DynamicTilesView</code>.</p>
  *
  * @author David Winterfeldt
  */
-public class TilesUrlBasedViewResolver extends UrlBasedViewResolver {
+public class TilesAjaxUrlBasedViewResolver extends AjaxUrlBasedViewResolver {
 
 	private String tilesDefinitionName = null;
 	private String tilesBodyAttributeName = null;
