@@ -15,7 +15,7 @@
 
     <modules>
         <module>simple-tiles2-webapp</module>
-        <module>dynamic-tiles2-webapp</module>
+        <module>dynamic-tiles3-webapp</module>
         <module>simple-form-annotation-config-webapp</module>
         <module>simple-spring-security-webapp</module>
         <module>simple-spring-webflow-webapp</module>

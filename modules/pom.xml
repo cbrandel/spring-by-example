@@ -16,7 +16,7 @@
     <modules>
         <module>sbe-servlet-context-scope</module>
         <module>sbe-thread-scope</module>
-        <module>sbe-dynamic-tiles2</module>
+        <module>sbe-dynamic-tiles3</module>
         <module>sbe-jcr</module>
         <module>sbe-util</module>
         <module>sbe-rest</module>
